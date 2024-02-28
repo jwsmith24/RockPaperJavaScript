@@ -35,6 +35,7 @@ function getPlayerChoice() {
 function playRound(playerChoice) {
 
     const computerChoice = getComputerChoice();
+    computerChoiceSpan.textContent = "Computer choice: " + computerChoice;
 
 
     // check for tie 
@@ -99,17 +100,22 @@ const paperButton = document.querySelector('#paper');
 const javascriptButton = document.querySelector('#javascript');
 const resetButton = document.querySelector("#reset");
 
+const playerChoiceSpan = document.querySelector('#playerChoice');
+const computerChoiceSpan = document.querySelector('#computerChoice');
 
 
 rockButton.addEventListener('click', () => {
+    playerChoiceSpan.textContent = "Player choice: " + ROCK;
     playRound(ROCK);
 });
 
 paperButton.addEventListener('click', () => {
+    playerChoiceSpan.textContent = "Player choice: " + PAPER;
     playRound(PAPER);
 });
 
 javascriptButton.addEventListener('click', () => {
+    playerChoiceSpan.textContent = "Player choice: " + JAVASCRIPT;
     playRound(JAVASCRIPT);
 });
 
