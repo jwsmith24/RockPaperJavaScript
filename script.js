@@ -70,6 +70,8 @@ function playRound(playerChoice) {
 
 }
 
+
+
 function displayScoreBoard() {
 
     const playerScoreSpan = document.querySelector('#playerScore');
@@ -80,6 +82,7 @@ function displayScoreBoard() {
 
 }
 
+const resultSpan = document.querySelector('#results #roundResult');
 
 function displayRoundWin() {
     const resultSpan = document.querySelector('#results #roundResult');
@@ -87,7 +90,6 @@ function displayRoundWin() {
 }
 
 function displayRoundLose() {
-    const resultSpan = document.querySelector('#results #roundResult');
     resultSpan.textContent = "The computer won!";
 }
 
@@ -95,6 +97,8 @@ function displayRoundLose() {
 const rockButton = document.querySelector('#rock');
 const paperButton = document.querySelector('#paper');
 const javascriptButton = document.querySelector('#javascript');
+const resetButton = document.querySelector("#reset");
+
 
 
 rockButton.addEventListener('click', () => {
@@ -107,4 +111,14 @@ paperButton.addEventListener('click', () => {
 
 javascriptButton.addEventListener('click', () => {
     playRound(JAVASCRIPT);
+});
+
+resetButton.addEventListener('click', () => {
+
+    playerScore = 0;
+    computerScore = 0;
+
+    displayScoreBoard();
+
+
 });
