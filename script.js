@@ -36,8 +36,6 @@ function playRound(playerChoice) {
 
     const computerChoice = getComputerChoice();
 
-    console.log("You chose: " + playerChoice);
-    console.log("Computer chose: " + computerChoice);
 
     // check for tie 
     if (playerChoice == computerChoice) {
@@ -47,28 +45,32 @@ function playRound(playerChoice) {
     } else if (playerChoice == ROCK && computerChoice == JAVASCRIPT) {
         ++playerScore;
         displayRoundWin();
+        displayScoreBoard();
         return true;
 
     } else if (playerChoice == JAVASCRIPT && computerChoice == PAPER) {
         ++playerScore;
         displayRoundWin();
+        displayScoreBoard();
         return true;
 
     } else if (playerChoice == PAPER && computerChoice == ROCK) {
         ++playerScore;
         displayRoundWin();
+        displayScoreBoard();
         return true;
 
         // losing condition
     } else {
-
+        ++computerScore;
         displayRoundLose();
+        displayScoreBoard();
         return false;
     }
 
 }
 
-function displayScoreBoard(playerScore, computerScore) {
+function displayScoreBoard() {
 
     const playerScoreSpan = document.querySelector('#playerScore');
     const computerScoreSpan = document.querySelector('#computerScore');
