@@ -26,9 +26,9 @@ function getPlayerChoice() {
     return selection.toUpperCase();
 }
 
-function playRound() {
+function playRound(playerChoice) {
 
-    let playerChoice = getPlayerChoice();
+
     let computerChoice = getComputerChoice();
 
     console.log("You chose: " + playerChoice);
