@@ -98,3 +98,20 @@ function displayScoreBoard(playerScore, computerScore) {
     console.log("Player: " + playerScore);
     console.log("Computer: " + computerScore);
 }
+
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const javascriptButton = document.querySelector('#javascript');
+
+
+rockButton.addEventListener('click', () => {
+    alert("you chose rock!");
+});
+
+paperButton.addEventListener('click', () => {
+    alert("you chose paper!");
+});
+
+javascriptButton.addEventListener('click', () => {
+    alert("you chose javascript!");
+});
