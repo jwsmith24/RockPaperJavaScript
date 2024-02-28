@@ -4,6 +4,9 @@ const ROCK = "ROCK";
 const PAPER = "PAPER";
 const JAVASCRIPT = "JAVASCRIPT";
 
+let playerScore = 0;
+let computerScore = 0;
+
 // returns either rock, paper, or scissors randomly
 function getComputerChoice() {
 
@@ -31,7 +34,6 @@ function getPlayerChoice() {
 
 function playRound(playerChoice) {
 
-
     const computerChoice = getComputerChoice();
 
     console.log("You chose: " + playerChoice);
@@ -43,27 +45,50 @@ function playRound(playerChoice) {
 
         // check for winning conditions
     } else if (playerChoice == ROCK && computerChoice == JAVASCRIPT) {
+        ++playerScore;
+        displayRoundWin();
         return true;
 
     } else if (playerChoice == JAVASCRIPT && computerChoice == PAPER) {
+        ++playerScore;
+        displayRoundWin();
         return true;
 
     } else if (playerChoice == PAPER && computerChoice == ROCK) {
+        ++playerScore;
+        displayRoundWin();
         return true;
 
         // losing condition
     } else {
 
+        displayRoundLose();
         return false;
     }
 
 }
 
 function displayScoreBoard(playerScore, computerScore) {
-    console.log("SCOREBOARD")
-    console.log("Player: " + playerScore);
-    console.log("Computer: " + computerScore);
+
+    const playerScoreSpan = document.querySelector('#playerScore');
+    const computerScoreSpan = document.querySelector('#computerScore');
+
+    playerScoreSpan.textContent = "Player: " + playerScore;
+    computerScoreSpan.textContent = "Computer: " + computerScore;
+
 }
+
+
+function displayRoundWin() {
+    const resultSpan = document.querySelector('#results #roundResult');
+    resultSpan.textContent = "You win this round!";
+}
+
+function displayRoundLose() {
+    const resultSpan = document.querySelector('#results #roundResult');
+    resultSpan.textContent = "The computer won!";
+}
+
 
 const rockButton = document.querySelector('#rock');
 const paperButton = document.querySelector('#paper');
