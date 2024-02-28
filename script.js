@@ -40,28 +40,61 @@ function playRound() {
 
         // check for winning conditions
     } else if (playerChoice == "ROCK" && computerChoice == "JAVASCRIPT") {
-        return displayWinningText(playerChoice, computerChoice);
+        return true;
 
     } else if (playerChoice == "JAVASCRIPT" && computerChoice == "PAPER") {
-        return displayWinningText(playerChoice, computerChoice);
+        return true;
 
     } else if (playerChoice == "PAPER" && computerChoice == "ROCK") {
-        return displayWinningText(playerChoice, computerChoice);
+        return true;
 
         // losing condition
     } else {
 
-        return displayLosingText(playerChoice, computerChoice);
+        return false;
+    }
+
+}
+
+function playGame() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let round = 1;
+
+
+    while (round <= 5) {
+
+        let playerWonRound = playRound();
+
+        if (playerWonRound) {
+            ++playerScore;
+            console.log("You win the round!");
+            displayScoreBoard(playerScore, computerScore);
+
+        } else {
+            ++computerScore;
+            console.log("You lose the round!");
+            displayScoreBoard(playerScore, computerScore);
+
+        }
+
+        round++;
+
+    }
+
+    if (playerScore > computerScore) {
+        return "You win the game!";
+    } else {
+        return "You lost.. try again!";
     }
 
 
-
 }
 
-function displayWinningText(playerChoice, computerChoice) {
-    return "You win! " + playerChoice + " beats " + computerChoice;
-}
 
-function displayLosingText(playerChoice, computerChoice) {
-    return "You lose! " + computerChoice + " beats " + playerChoice;
+
+function displayScoreBoard(playerScore, computerScore) {
+    console.log("SCOREBOARD")
+    console.log("Player: " + playerScore);
+    console.log("Computer: " + computerScore);
 }
