@@ -1,5 +1,8 @@
 console.log("Rock, Paper, JavaScript!");
 
+const ROCK = "ROCK";
+const PAPER = "PAPER";
+const JAVASCRIPT = "JAVASCRIPT";
 
 // returns either rock, paper, or scissors randomly
 function getComputerChoice() {
@@ -9,13 +12,13 @@ function getComputerChoice() {
 
 
     if (selection == 0) {
-        return "ROCK";
+        return ROCK;
 
     } else if (selection == 1) {
-        return "PAPER";
+        return PAPER;
 
     } else {
-        return "JAVASCRIPT";
+        return JAVASCRIPT;
     }
 }
 
@@ -29,7 +32,7 @@ function getPlayerChoice() {
 function playRound(playerChoice) {
 
 
-    let computerChoice = getComputerChoice();
+    const computerChoice = getComputerChoice();
 
     console.log("You chose: " + playerChoice);
     console.log("Computer chose: " + computerChoice);
@@ -39,13 +42,13 @@ function playRound(playerChoice) {
         return "It's a tie!";
 
         // check for winning conditions
-    } else if (playerChoice == "ROCK" && computerChoice == "JAVASCRIPT") {
+    } else if (playerChoice == ROCK && computerChoice == JAVASCRIPT) {
         return true;
 
-    } else if (playerChoice == "JAVASCRIPT" && computerChoice == "PAPER") {
+    } else if (playerChoice == JAVASCRIPT && computerChoice == PAPER) {
         return true;
 
-    } else if (playerChoice == "PAPER" && computerChoice == "ROCK") {
+    } else if (playerChoice == PAPER && computerChoice == ROCK) {
         return true;
 
         // losing condition
@@ -55,43 +58,6 @@ function playRound(playerChoice) {
     }
 
 }
-
-function playGame() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let round = 1;
-
-
-    while (round <= 5) {
-
-        let playerWonRound = playRound();
-
-        if (playerWonRound) {
-            ++playerScore;
-            console.log("You win the round!");
-            displayScoreBoard(playerScore, computerScore);
-
-        } else {
-            ++computerScore;
-            console.log("You lose the round!");
-            displayScoreBoard(playerScore, computerScore);
-
-        }
-
-        round++;
-
-    }
-
-    if (playerScore > computerScore) {
-        return "You win the game!";
-    } else {
-        return "You lost.. try again!";
-    }
-
-
-}
-
-
 
 function displayScoreBoard(playerScore, computerScore) {
     console.log("SCOREBOARD")
@@ -105,13 +71,13 @@ const javascriptButton = document.querySelector('#javascript');
 
 
 rockButton.addEventListener('click', () => {
-    alert("you chose rock!");
+    playRound(ROCK);
 });
 
 paperButton.addEventListener('click', () => {
-    alert("you chose paper!");
+    playRound(PAPER);
 });
 
 javascriptButton.addEventListener('click', () => {
-    alert("you chose javascript!");
+    playRound(JAVASCRIPT);
 });
